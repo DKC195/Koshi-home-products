@@ -5,9 +5,9 @@ import ProductCard from "@/components/productCard";
 
 export default function ProductList({ products }: { products: Product[] }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div className="flex flex-wrap gap-6 justify-center">
       {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
+      <ProductCard key={product.id} product={product} />
       ))}
     </div>
   );
