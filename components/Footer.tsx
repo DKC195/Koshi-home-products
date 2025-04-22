@@ -5,23 +5,21 @@ import Image from "next/image";
 
 export default function Footer() {
     const menuItems: [string, string][] = [
+        ["/about", "About"],
         ["/", "Home"],
-        // ["/about", "About"],
         ["/products", "Products"],
-        // ["/contact", "Contact"],
+        // ["#contact", "Contact"],
     ];
 
     return (
         <footer className="w-full bg-offYellow text-textBlue border-t border-gray-300 mt-16">
-            <div className="mx-auto max-w-screen-xl px-6 py-12 grid grid-cols-1 md:grid-cols-5 gap-10">
-                
-                <div></div>
+            <div className="mx-auto max-w-screen-xl px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-20">
 
                 {/* Logo & Description */}
                 <div className="flex flex-col gap-4">
                     <div className="flex items-center gap-3">
                         <Image
-                            src="/KHP_Clear.png" // Replace with your logo path
+                            src="/KHP_Clear.png"
                             alt="Koshi Home Products Logo"
                             width={80}
                             height={80}
@@ -31,13 +29,32 @@ export default function Footer() {
                             Koshi Home Products
                         </span>
                     </div>
+                    {/* Optional description */}
                     {/* <p className="text-sm text-muted-foreground">
                         Handcrafted products straight from the heart of Koshi.
                         Sustainable, local, and made with love.
                     </p> */}
                 </div>
 
-                <div></div>
+                {/* Contact Info */}
+                <div id="contact">
+                    <h4 className="text-lg font-semibold mb-4">Contact</h4>
+                    <p className="text-sm">
+                        Phone:{" "}
+                        <a href="tel:9745478850" className="hover:underline">
+                            9745478850
+                        </a>
+                    </p>
+                    <p className="text-sm">
+                        Email:{" "}
+                        <a
+                            href="mailto:koshihomeproducts@gmail.com"
+                            className="hover:underline"
+                        >
+                            koshihomeproducts@gmail.com
+                        </a>
+                    </p>
+                </div>
 
                 {/* Navigation */}
                 <div className="text-right">
@@ -53,15 +70,6 @@ export default function Footer() {
                             </Link>
                         ))}
                     </div>
-                </div>
-
-                {/* Contact / Info */}
-                <div>
-                    {/* <h4 className="text-lg font-semibold mb-4">Contact</h4> */}
-                    {/* <p className="text-sm">Email: info@koshiproducts.com</p> */}
-                    {/* <p className="text-sm">Phone: +977-98XXXXXXXX</p> */}
-                    {/* <p className="text-sm">Location: Biratnagar, Nepal</p> */}
-                    {/* Add social icons here if needed */}
                 </div>
             </div>
 

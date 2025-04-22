@@ -15,10 +15,10 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const menuItems = [
+    ["/about", "About"],
     ["/", "Home"],
-    // ["/about", "About"],
     ["/products", "Products"],
-    // ["/contact", "Contact"],
+    ["#contact", "Contact"],
   ];
 
   useEffect(() => {
