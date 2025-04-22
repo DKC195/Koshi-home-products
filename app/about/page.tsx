@@ -13,7 +13,7 @@ export default function About() {
                             At KHP (Koshi Home Products), we take pride in offering a complete range of cleaning solutions designed for both homes and commercial spaces. Our commitment to quality, innovation, and performance has made us a trusted name across Nepal.
                         </p>
                         <p className="text-pretty text-neutral-600">
-                            Crafted with premium materials and built with cutting-edge technology, our products are designed to deliver consistent results and long-term durability. Backed by a secure and reliable distribution network, KHP ensures that superior cleaning power is always within reach—whether you're cleaning your home or maintaining a business.
+                            Crafted with premium materials and built with cutting-edge technology, our products are designed to deliver consistent results and long-term durability. Backed by a secure and reliable distribution network, KHP ensures that superior cleaning power is always within reach—whether you&rsquo; re cleaning your home or maintaining a business.
                         </p>
                         <a
                             className="inline-flex h-10 items-center justify-center rounded-full bg-neutral-900 px-6 font-medium text-neutral-50 transition-colors hover:bg-neutral-900/90 focus:outline-hidden focus:ring-1 focus:ring-neutral-950"
