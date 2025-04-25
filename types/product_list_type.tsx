@@ -6,5 +6,6 @@ export interface Product {
   price: number;
   image: string;
   description: string
-  sizes: string[];
+  sizes: string[]
+  category: string; // 👈 Add category here
 }
