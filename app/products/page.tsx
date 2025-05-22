@@ -16,9 +16,9 @@ export default function HomePage() {
     : products;
 
   return (
-    <section className="mx-auto max-w-screen-xl flex flex-col items-center justify-between px-6 py-4">
-      <main className="p-4">
-        <h1 className="text-2xl font-bold mb-4 text-center p-4">Our Products</h1>
+    <section className="bg-neutral-100 p-10">
+      <main className=" mx-auto max-w-screen-xl flex flex-col items-center justify-between px-6 py-4">
+        <h1 className="text-5xl font-bold mb-4 text-center p-4">Our Products</h1>
 
         {/* Category Filter Buttons */}
         <div className="flex flex-wrap gap-2 justify-center mb-4">

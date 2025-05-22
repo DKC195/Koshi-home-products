@@ -12,19 +12,21 @@ export default function Footer() {
     ];
 
     return (
-        <footer className="w-full bg-offYellow text-textBlue border-t border-gray-300 mt-16">
+        <footer className="w-full bg-black text-white border-t border-gray-300 mt-16">
             <div className="mx-auto max-w-screen-xl px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-20">
 
                 {/* Logo & Description */}
                 <div className="flex flex-col gap-4">
                     <div className="flex items-center gap-3">
-                        <Image
-                            src="/KHP_Clear.png"
-                            alt="Koshi Home Products Logo"
-                            width={80}
-                            height={80}
-                            className="rounded"
-                        />
+                        <div className="p-5 m-1 bg-white rounded-lg">
+                            <Image
+                                src="/KHP_Clear.png"
+                                alt="Koshi Home Products Logo"
+                                width={320}
+                                height={320}
+                                className="rounded sm:w-32 sm:h-32 w-24 h-24 object-cover"
+                            />
+                        </div>
                         <span className="text-2xl font-semibold">
                             Koshi Home Products
                         </span>
