@@ -18,6 +18,7 @@ export default function FullScreenBackgroundCarousel() {
 
     return (
         <div className="relative w-full h-[70vh] overflow-hidden">
+            
             <Carousel
                 className="absolute inset-0 w-full h-[70vh] z-0"
                 opts={{
@@ -32,7 +33,9 @@ export default function FullScreenBackgroundCarousel() {
                     }),
                 ]}
             >
-                <CarouselContent className="h-[70vh] flex items-stretch"> {/* Use flex and items-stretch */}
+                <CarouselContent className="h-[70vh] flex items-stretch">
+                    {" "}
+                    {/* Use flex and items-stretch */}
                     {images.map((src, index) => (
                         <CarouselItem key={index} className="h-full">
                             <div className="w-full h-full">
@@ -60,12 +63,22 @@ export default function FullScreenBackgroundCarousel() {
                     <p className="text-2xl sm:text-2xl font-bold text-neutral-200">
                         Koshi Home Products.
                     </p>
-                    <a
-                        href="/products"
-                        className="inline-flex items-center justify-center h-12 px-8 rounded-full bg-[#3D348B] text-white font-semibold hover:bg-black transition"
-                    >
-                        Shop Now
-                    </a>
+                    <div>
+                        <a
+                            href="/products"
+                            className="inline-flex items-center justify-center h-12 px-8 mx-2 rounded-full bg-[#3D348B] text-white font-semibold hover:bg-black transition"
+                        >
+                            Shop Now
+                        </a>
+                        <a
+                            href="https://wa.me/9779811368689"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center h-12 px-8 mx-2 rounded-full bg-green-500 text-black font-semibold hover:bg-green-700 transition mt-2"
+                        >
+                            WhatsApp Us
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
