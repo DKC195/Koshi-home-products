@@ -21,8 +21,8 @@ export default function Home() {
               // { title: "Packings", image: "/KHP_SQ.jpeg", desc: "When availability matters the most." },
               { title: "Cleaning", image: "/products/Brite.jpeg", desc: "Clean and Clear" },
             ].map(({ title, image, desc }) => (
-              <Link href="/products">
-              <div key={title} className="rounded shadow-sm p-4 bg-neutral-50">
+              <Link href="/products" key={title}>
+              <div className="rounded shadow-sm p-4 bg-neutral-50">
             <Image
               src={image}
               alt={title}
