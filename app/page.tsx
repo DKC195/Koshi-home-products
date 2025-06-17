@@ -1,4 +1,5 @@
 import FullScreenCarousel from "@/components/FullScreenCarousel";
+import Link from "next/dist/client/link";
 import Image from "next/image";
 
 export default function Home() {
@@ -13,12 +14,14 @@ export default function Home() {
           <p className="text-neutral-600 max-w-xl mx-auto mb-12">
             From timeless essentials to modern comforts, Koshi products are designed to enrich your everyday living.
           </p>
+          
           <div className="grid md:grid-cols-2 gap-8">
             {[
               { title: "Padlocks", image: "/products/Super60.jpeg", desc: "Secure Everything." },
               // { title: "Packings", image: "/KHP_SQ.jpeg", desc: "When availability matters the most." },
               { title: "Cleaning", image: "/products/Brite.jpeg", desc: "Clean and Clear" },
             ].map(({ title, image, desc }) => (
+              <Link href="/products">
               <div key={title} className="rounded shadow-sm p-4 bg-neutral-50">
             <Image
               src={image}
@@ -30,8 +33,10 @@ export default function Home() {
             <h3 className="text-xl font-semibold text-neutral-800">{title}</h3>
             <p className="text-neutral-600">{desc}</p>
               </div>
+              </Link>
             ))}
           </div>
+          
         </div>
       </section>
 
