@@ -13,6 +13,7 @@ export default function Navbar() {
     const menuItems = [
         ["/", "Home"],
         ["#about", "About"],
+        // ["/blog", "Blog"],
         ["/products", "Products"],
         ["#contact", "Contact"],
     ];
@@ -46,7 +47,7 @@ export default function Navbar() {
     };
 
     return (
-        <header className="relative top-0 z-50 w-full bg-[#3D348B] text-white shadow-md sticky">
+        <header className="top-0 z-50 w-full bg-[#3D348B] text-white shadow-md sticky">
             <div className="mx-auto max-w-screen-xl flex items-center justify-between px-6 py-4">
                 {/* Logo */}
                 <Link href="/" className="text-xl font-bold text-white">

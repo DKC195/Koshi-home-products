@@ -47,7 +47,7 @@ export default function ProductCard({ product }: { product: Product }) {
                         />
                     </div>
 
-                <p className="text-gray-700 mb-4">{product.description}</p>
+                {/* <p className="text-gray-700 mb-4">{product.description}</p>
 
                 <div className="mb-4">
                     <h4 className="font-semibold mb-1">Available Sizes:</h4>
@@ -61,7 +61,7 @@ export default function ProductCard({ product }: { product: Product }) {
                             </span>
                         ))}
                     </div>
-                </div>
+                </div> */}
 
                 <Button onClick={() => setOpen(false)} variant="outline">
                     Close

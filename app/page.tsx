@@ -13,11 +13,11 @@ export default function Home() {
           <p className="text-neutral-600 max-w-xl mx-auto mb-12">
             From timeless essentials to modern comforts, Koshi products are designed to enrich your everyday living.
           </p>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {[
-              { title: "Padlocks", image: "/KHP_SQ.jpeg", desc: "Secure Everything." },
-              { title: "Packings", image: "/KHP_SQ.jpeg", desc: "When availability matters the most." },
-              { title: "Cleaning", image: "/KHP_SQ.jpeg", desc: "Clean and Clear" },
+              { title: "Padlocks", image: "/products/Super60.jpeg", desc: "Secure Everything." },
+              // { title: "Packings", image: "/KHP_SQ.jpeg", desc: "When availability matters the most." },
+              { title: "Cleaning", image: "/products/Brite.jpeg", desc: "Clean and Clear" },
             ].map(({ title, image, desc }) => (
               <div key={title} className="rounded shadow-sm p-4 bg-neutral-50">
             <Image
@@ -25,7 +25,7 @@ export default function Home() {
               alt={title}
               width={250}
               height={250}
-              className="rounded mb-4 object-cover mx-auto p-4"
+              className="rounded mb-4 object-cover mx-auto p-4 border-4 border-gray-400"
             />
             <h3 className="text-xl font-semibold text-neutral-800">{title}</h3>
             <p className="text-neutral-600">{desc}</p>
