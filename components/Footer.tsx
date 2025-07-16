@@ -2,13 +2,18 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import {
+    FaFacebookF,
+    FaInstagram,
+    FaTwitter,
+    FaLinkedinIn,
+} from "react-icons/fa";
 
 export default function Footer() {
     const menuItems: [string, string][] = [
         ["/about", "About"],
         ["/", "Home"],
         ["/products", "Products"],
-        // ["#contact", "Contact"],
     ];
 
     return (
@@ -30,31 +35,72 @@ export default function Footer() {
                             Koshi Home Products
                         </span>
                     </div>
-                    {/* Optional description */}
-                    {/* <p className="text-sm text-muted-foreground">
-                        Handcrafted products straight from the heart of Koshi.
-                        Sustainable, local, and made with love.
-                    </p> */}
                 </div>
 
-                {/* Contact Info */}
-                <div id="contact">
-                    <h4 className="text-lg font-semibold mb-4">Contact</h4>
-                    <p className="text-sm">
-                        Phone:{" "}
-                        <a href="tel:9745478850" className="hover:underline">
-                            9745478850
-                        </a>
-                    </p>
-                    <p className="text-sm">
-                        Email:{" "}
-                        <a
-                            href="mailto:koshihomeproducts@gmail.com"
-                            className="hover:underline"
-                        >
-                            koshihomeproducts@gmail.com
-                        </a>
-                    </p>
+                {/* Contact Info & Social */}
+                <div id="contact" className="flex flex-col gap-4">
+                    <div>
+                        <h4 className="text-lg font-semibold mb-2">Contact</h4>
+                        <p className="text-sm">
+                            Phone:{" "}
+                            <a
+                                href="tel:9745478850"
+                                className="hover:underline"
+                            >
+                                9745478850
+                            </a>
+                        </p>
+                        <p className="text-sm">
+                            Email:{" "}
+                            <a
+                                href="mailto:koshihomeproducts@gmail.com"
+                                className="hover:underline"
+                            >
+                                koshihomeproducts@gmail.com
+                            </a>
+                        </p>
+                    </div>
+
+                    {/* Social Media */}
+                    <div>
+                        <h4 className="text-lg font-semibold mb-2">
+                            Follow Us
+                        </h4>
+                        <div className="flex gap-4 text-white text-xl">
+                            <a
+                                href="https://www.facebook.com/people/Koshi-Home-Products-Pvt-Ltd/61575118653189/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-blue-500"
+                            >
+                                <FaFacebookF />
+                            </a>
+                            <a
+                                href="https://www.instagram.com/koshihomeproducts/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-pink-500"
+                            >
+                                <FaInstagram />
+                            </a>
+                            {/* <a
+                                href="https://twitter.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-blue-400"
+                            >
+                                <FaTwitter />
+                            </a>
+                            <a
+                                href="https://linkedin.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-blue-600"
+                            >
+                                <FaLinkedinIn />
+                            </a> */}
+                        </div>
+                    </div>
                 </div>
 
                 {/* Navigation */}
