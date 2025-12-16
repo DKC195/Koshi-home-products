@@ -18,17 +18,17 @@ export default function ProductCard({ product }: { product: Product }) {
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Card className="bg-neutral-100 cursor-pointer w-[300] h-[300] hover:shadow-md transition">
-                        <div className="relative w-full h-full">
+                <Card className="bg-neutral-100 cursor-pointer w-[300] h-[370] hover:shadow-md transition">
+                        <div className="relative w-[300] h-[300]">
                             <Image
                                 src={product.image}
                                 alt={product.name}
                                 fill
-                                className="object-contain rounded-t p-4"
+                                className="object-contain rounded-t"
                             />
                         </div>
                     <CardContent className="p-4">
-                        <h1 className="font-medium">{product.name}</h1>
+                        <h1 className="text-xl font-bold text-center">{product.name}</h1>
                         {/* <p className="text-sm text-muted-foreground">${product.price.toFixed(2)}</p> */}
                     </CardContent>
                 </Card>
