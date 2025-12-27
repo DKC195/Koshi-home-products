@@ -18,34 +18,39 @@ export default function ProductCard({ product }: { product: Product }) {
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Card className="bg-neutral-100 cursor-pointer w-[300] h-[370] hover:shadow-md transition">
-                        <div className="relative w-[300] h-[300]">
-                            <Image
-                                src={product.image}
-                                alt={product.name}
-                                fill
-                                className="object-contain rounded-t"
-                            />
-                        </div>
-                    <CardContent className="p-4">
-                        <h1 className="text-xl font-bold text-center">{product.name}</h1>
+                <Card className="bg-neutral-100 cursor-pointer w-[300px] h-[370px] hover:shadow-md transition p-4">
+                    <div className="relative h-[320px] rounded-xl overflow-hidden">
+                        <Image
+                            src={product.image}
+                            alt={product.name}
+                            fill
+                            className="object-cover"
+                        />
+                    </div>
+
+                    <CardContent className="p-2">
+                        <h1 className="text-xl font-bold text-center">
+                            {product.name}
+                        </h1>
                         {/* <p className="text-sm text-muted-foreground">${product.price.toFixed(2)}</p> */}
                     </CardContent>
                 </Card>
             </DialogTrigger>
 
-            <DialogContent className="max-w-md">
+            <DialogContent className="max-w-md grid place-items-center">
                 <DialogHeader>
-                    <DialogTitle>{product.name}</DialogTitle>
+                    <DialogTitle className="self-center">
+                        {product.name}
+                    </DialogTitle>
                 </DialogHeader>
-                    <div className="relative w-[300] h-[300]">
-                        <Image
-                            src={product.image}
-                            alt={product.name}
-                            fill
-                            className="object-contain rounded-t p-4"
-                        />
-                    </div>
+                <div className="relative w-[300px] h-[300px] rounded-t-lg">
+                    <Image
+                        src={product.image}
+                        alt={product.name}
+                        fill
+                        className="object-contain rounded-t-lg p-4"
+                    />
+                </div>
 
                 {/* <p className="text-gray-700 mb-4">{product.description}</p>
 
