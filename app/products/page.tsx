@@ -1,17 +1,29 @@
 "use client";
 
-import { useSearchParams, useRouter } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
 import ProductList from "@/components/ProductList";
 import { products } from "./product_list";
 
-export default function HomePage() {
-  const searchParams = useSearchParams();
-  const router = useRouter();
+function getCategoryFromHash() {
+  if (typeof window === "undefined") return null;
+  const hash = window.location.hash; // e.g. "#category=Shoes"
+  const m = hash.match(/category=([^&]+)/);
+  return m ? decodeURIComponent(m[1]) : null;
+}
 
-  const selectedCategory = searchParams.get("category");
+export default function ProductsClient() {
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  const categories = Array.from(
-    new Set(products.map((product) => product.category))
+  useEffect(() => {
+    const sync = () => setSelectedCategory(getCategoryFromHash());
+    sync();
+    window.addEventListener("hashchange", sync);
+    return () => window.removeEventListener("hashchange", sync);
+  }, []);
+
+  const categories = useMemo(
+    () => Array.from(new Set(products.map((p) => p.category))),
+    []
   );
 
   const filteredProducts = selectedCategory
@@ -20,9 +32,11 @@ export default function HomePage() {
 
   const setCategory = (category: string | null) => {
     if (!category) {
-      router.push("/products"); // removes query param
+      window.location.hash = "";
+      setSelectedCategory(null);
     } else {
-      router.push(`/products?category=${encodeURIComponent(category)}`);
+      window.location.hash = `category=${encodeURIComponent(category)}`;
+      setSelectedCategory(category);
     }
   };
 
@@ -31,7 +45,6 @@ export default function HomePage() {
       <main className="mx-auto max-w-screen-xl flex flex-col items-center">
         <h1 className="text-5xl font-bold mb-4">Our Products</h1>
 
-        {/* Category Buttons */}
         <div className="flex flex-wrap gap-2 justify-center mb-4">
           <button
             className={`px-4 py-2 rounded ${

@@ -3,13 +3,13 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Home, Info, ShoppingBag, Mail } from "lucide-react";
+import { Home, Info, ShoppingBag, Mail, LucideIcon } from "lucide-react";
 
 export default function Navbar() {
     const [activeSection, setActiveSection] = useState("");
     const pathname = usePathname();
 
-    const menuItems = [
+    const menuItems: [string, string, LucideIcon][] = [
         ["/", "Home", Home],
         ["/products", "Products", ShoppingBag],
         ["#contact", "Contact", Mail],

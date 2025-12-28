@@ -1,5 +1,4 @@
 import FullScreenCarousel from "@/components/FullScreenCarousel";
-import { link } from "fs";
 import Link from "next/dist/client/link";
 import Image from "next/image";
 
@@ -25,19 +24,19 @@ export default function Home() {
                                 title: "Kitchen Cleaning",
                                 image: "/products/Brite_PScrubber.jpeg",
                                 desc: "When availability matters the most.",
-                                link: "products?category=KHP%20Kitchen%20Cleaning%20Products",
+                                link: "products#category=KHP%20Kitchen%20Cleaning%20Products",
                             },
                             {
                                 title: "Padlocks",
                                 image: "/products/Lock_Super60.jpeg",
                                 desc: "Secure Everything.",
-                                link: "products?category=KHP%20Padlocks",
+                                link: "products#category=KHP%20Padlocks",
                             },
                             {
                                 title: "Cleaning",
                                 image: "/products/MicrofiberMop.jpeg",
                                 desc: "Clean and Clear",
-                                link: "products?category=KHP%20Cleaning%20Products",
+                                link: "products#category=KHP%20Cleaning%20Products",
                             },
                         ].map(({ title, image, desc, link }) => (
                             <Link href={link} key={title}>
