@@ -1,4 +1,5 @@
 import FullScreenCarousel from "@/components/FullScreenCarousel";
+import { link } from "fs";
 import Link from "next/dist/client/link";
 import Image from "next/image";
 
@@ -24,19 +25,22 @@ export default function Home() {
                                 title: "Kitchen Cleaning",
                                 image: "/products/Brite_PScrubber.jpeg",
                                 desc: "When availability matters the most.",
+                                link: "products?category=KHP%20Kitchen%20Cleaning%20Products",
                             },
                             {
                                 title: "Padlocks",
                                 image: "/products/Lock_Super60.jpeg",
                                 desc: "Secure Everything.",
+                                link: "products?category=KHP%20Padlocks",
                             },
                             {
                                 title: "Cleaning",
                                 image: "/products/MicrofiberMop.jpeg",
                                 desc: "Clean and Clear",
+                                link: "products?category=KHP%20Cleaning%20Products",
                             },
-                        ].map(({ title, image, desc }) => (
-                            <Link href="/products" key={title}>
+                        ].map(({ title, image, desc, link }) => (
+                            <Link href={link} key={title}>
                                 <div className="rounded shadow-sm p-4 bg-neutral-50">
                                     <Image
                                         src={image}
@@ -57,7 +61,7 @@ export default function Home() {
             </section>
 
             {/* Sustainability Section */}
-            <section className="bg-white py-16 px-6">
+            <section className="bg-white py-10 px-6">
                 <div className="max-w-screen-xl mx-auto text-center space-y-6">
                     <h2 className="text-3xl font-bold">
                         Sustainability at Heart
@@ -68,17 +72,17 @@ export default function Home() {
                         responsible.
                     </p>
                     <Image
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Recycle001.svg/2560px-Recycle001.svg.png"
+                        src="/recycle.png"
                         alt="Sustainable Materials"
-                        width={400}
-                        height={400}
+                        width={200}
+                        height={200}
                         className="rounded-lg mx-auto object-cover"
                     />
                 </div>
             </section>
 
             {/* Testimonials Section */}
-            <section className="bg-neutral-100 py-16 px-6 my-16">
+            <section className="bg-neutral-100 py-16 px-6">
                 <div className="max-w-screen-xl mx-auto text-center">
                     <h2 className="text-3xl font-bold mb-8">
                         Customer Stories

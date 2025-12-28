@@ -69,9 +69,10 @@ export default function Footer() {
                         <div className="flex gap-4 text-white text-xl">
                             <a
                                 href="https://www.facebook.com/people/Koshi-Home-Products-Pvt-Ltd/61575118653189/"
-                                target="_blank"
+                                target="Facebook"
                                 rel="noopener noreferrer"
                                 className="hover:text-blue-500"
+                                aria-label="Facebook"
                             >
                                 <FaFacebookF />
                             </a>
@@ -80,6 +81,7 @@ export default function Footer() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="hover:text-pink-500"
+                                aria-label="Instagram"
                             >
                                 <FaInstagram />
                             </a>

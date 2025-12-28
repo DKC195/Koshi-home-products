@@ -11,8 +11,8 @@ import {
 export default function FullScreenBackgroundCarousel() {
     const images = [
         "/carousel/everest.jpg",
-        "/carousel/pashupati.jpeg",
         "/carousel/village.jpeg",
+        "/carousel/pashupati.jpeg",
         "/carousel/erc.jpeg",
     ];
 

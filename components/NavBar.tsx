@@ -3,19 +3,17 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Home, Info, ShoppingBag, Mail } from "lucide-react";
 
 export default function Navbar() {
     const [activeSection, setActiveSection] = useState("");
-    const [menuOpen, setMenuOpen] = useState(false);
     const pathname = usePathname();
 
     const menuItems = [
-        ["/", "Home"],
-        ["#about", "About"],
-        // ["/blog", "Blog"],
-        ["/products", "Products"],
-        ["#contact", "Contact"],
+        ["/", "Home", Home],
+        ["/products", "Products", ShoppingBag],
+        ["#contact", "Contact", Mail],
+        ["#about", "About", Info],
     ];
 
     useEffect(() => {
@@ -47,70 +45,71 @@ export default function Navbar() {
     };
 
     return (
-        <header className="top-0 z-50 w-full bg-[#3D348B] text-white shadow-md sticky">
-            <div className="mx-auto max-w-screen-xl flex items-center justify-between px-6 py-4">
-                {/* Logo */}
-                <Link href="/" className="text-xl font-bold text-white">
-                    Koshi Home Products
-                </Link>
+        <>
+            {/* Desktop Header */}
+            <header className="hidden md:block top-0 z-50 w-full bg-[#3D348B] text-white shadow-md sticky">
+                <div className="mx-auto max-w-screen-xl flex items-center justify-between px-6 py-4">
+                    <Link href="/" className="text-xl font-bold text-white">
+                        Koshi Home Products
+                    </Link>
 
-                {/* Hamburger Icon (Mobile Only) */}
-                <div className="md:hidden">
-                    <button
-                        onClick={() => setMenuOpen(!menuOpen)}
-                        className="text-white focus:outline-none"
-                    >
-                        {menuOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
+                    <nav>
+                        <ul className="flex gap-8">
+                            {menuItems.map(([href, title], index) => (
+                                <li key={index}>
+                                    <Link
+                                        href={href}
+                                        className={`
+                                            relative inline-block text-white text-base font-medium tracking-wide
+                                            after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px]
+                                            after:bg-white after:transition-all after:duration-300
+                                            ${
+                                                isActive(href)
+                                                    ? "after:w-full font-semibold text-green-400"
+                                                    : "after:w-0 hover:after:w-full"
+                                            }
+                                        `}
+                                    >
+                                        {title}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
                 </div>
+            </header>
 
-                {/* Desktop Menu */}
-                <nav className="hidden md:block">
-                    <ul className="flex gap-8">
-                        {menuItems.map(([href, title], index) => (
-                            <li key={index}>
-                                <Link
-                                    href={href}
-                                    onClick={() => setMenuOpen(false)}
-                                    className={`
-                                        relative inline-block text-white text-base font-medium tracking-wide
-                                        after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px]
-                                        after:bg-white after:transition-all after:duration-300
-                                        ${
-                                            isActive(href)
-                                                ? "after:w-full font-semibold text-green-400"
-                                                : "after:w-0 hover:after:w-full"
-                                        }
-                                    `}
-                                >
-                                    {title}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
+            {/* Mobile Header */}
+            <header className="md:hidden top-0 z-50 w-full bg-[#3D348B] text-white shadow-md sticky">
+                <div className="flex items-center justify-center px-6 py-4">
+                    <Link href="/" className="text-lg font-bold text-white">
+                        Koshi Home Products
+                    </Link>
+                </div>
+            </header>
+
+            {/* Mobile Bottom Tab Bar */}
+            <div className="md:hidden fixed bottom-0 left-0 w-full bg-[#3D348B] border-t border-gray-700 z-50 pb-safe">
+                <nav className="flex justify-around items-center">
+                    {menuItems.map(([href, title, Icon], index) => (
+                        <Link
+                            key={index}
+                            href={href}
+                            className={`flex flex-col items-center justify-center w-full py-3 transition-colors ${
+                                isActive(href)
+                                    ? "text-green-400"
+                                    : "text-gray-300 hover:text-white"
+                            }`}
+                        >
+                            <Icon size={24} />
+                            <span className="text-xs mt-1">{title}</span>
+                        </Link>
+                    ))}
                 </nav>
             </div>
 
-            {/* Mobile Menu (Only when menuOpen is true) */}
-            {menuOpen && (
-                <div className="absolute top-full left-0 w-full bg-[#3D348B] md:hidden z-40 shadow-md">
-                    <ul className="flex flex-col items-start gap-4 px-6 py-4">
-                        {menuItems.map(([href, title], index) => (
-                            <li key={index}>
-                                <Link
-                                    href={href}
-                                    onClick={() => setMenuOpen(false)}
-                                    className={`text-white text-base font-medium ${
-                                        isActive(href) ? "text-green-400 font-semibold" : ""
-                                    }`}
-                                >
-                                    {title}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            )}
-        </header>
+            {/* Spacer for mobile to prevent content overlap */}
+            {/* <div className="md:hidden h-36" /> */}
+        </>
     );
 }
