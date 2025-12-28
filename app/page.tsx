@@ -1,4 +1,6 @@
+import AboutUs from "@/components/AboutUs";
 import FullScreenCarousel from "@/components/FullScreenCarousel";
+import FeedbackForm from "@/components/FeedbackForm";
 import Link from "next/dist/client/link";
 import Image from "next/image";
 
@@ -116,6 +118,8 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+            <FeedbackForm />
+            <AboutUs/>
         </>
     );
 }

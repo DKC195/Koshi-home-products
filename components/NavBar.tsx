@@ -15,7 +15,7 @@ export default function Navbar() {
         ["/", "Home", Home],
         ["/products", "Products", ShoppingBag],
         ["#contact", "Contact", Mail],
-        ["#about", "About", Info],
+        ["/about", "About", Info],  // Changed from "#about" to "/about"
     ];
 
     useEffect(() => {
@@ -54,6 +54,8 @@ export default function Navbar() {
         if (href === "/") return pathname === href && !activeSection;
         if (href.startsWith("#")) {
             const sectionId = href.split("#")[1];
+            // Only consider hash links active if we're on the home page and the section is visible
+            if (pathname !== "/") return false;
             return activeSection === sectionId;
         }
         return pathname === href;

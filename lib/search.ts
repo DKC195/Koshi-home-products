@@ -1,4 +1,4 @@
-import { Product } from "@/types/product_list_type";
+// import { Product } from "@/types/product_list_type";
 import { products } from "@/app/products/product_list";
 
 export interface SearchResult {

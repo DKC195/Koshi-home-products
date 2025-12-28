@@ -4,7 +4,7 @@ import "./globals.css";
 
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import AboutUs from "@/components/AboutUs";
+// import AboutUs from "@/components/AboutUs";
 
 const robotoSans = Roboto({
   variable: "--font-roboto",
@@ -33,7 +33,6 @@ export default function RootLayout({
       >
           <NavBar />
           {children}
-          <AboutUs/>
           <Footer />
       </body>
     </html>

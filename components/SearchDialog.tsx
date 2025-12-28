@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { searchContent, SearchResult } from "@/lib/search";
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 
 interface SearchDialogProps {
   open: boolean;
@@ -62,7 +62,7 @@ export default function SearchDialog({ open, onOpenChange }: SearchDialogProps) 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent 
-        className="max-w-2xl max-h-[80vh] flex flex-col top-[20%] translate-y-0"
+        className="max-h-[80vh] flex flex-col top-[20%] translate-y-0 max-w-[calc(100%-2rem)] sm:max-w-2xl"
       >
         <DialogHeader>
           <DialogTitle>Search</DialogTitle>

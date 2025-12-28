@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import ProductList from "@/components/ProductList";
 import { products } from "./product_list";
+import AboutUs from "@/components/AboutUs";
 
 function getCategoryFromHash() {
   if (typeof window === "undefined") return null;
@@ -102,6 +103,7 @@ export default function ProductsClient() {
   };
 
   return (
+    <>
     <section className="bg-neutral-100 p-10">
       <main className="mx-auto max-w-screen-xl flex flex-col items-center">
         <h1 className="text-5xl font-bold mb-4">Our Products</h1>
@@ -134,5 +136,7 @@ export default function ProductsClient() {
         <ProductList products={filteredProducts} />
       </main>
     </section>
+    <AboutUs/>
+    </>
   );
 }
