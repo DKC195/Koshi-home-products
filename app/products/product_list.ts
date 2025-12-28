@@ -185,7 +185,7 @@ export const products: Product[] = [
   },
   {
     id: "20",
-    name: "Brite (Plastic Scrubber)",
+    name: "Plastic Scrubber",
     price: 49,
     image: "/products/Brite_PScrubber.jpeg",
     description: "To be Updated.",
@@ -194,7 +194,7 @@ export const products: Product[] = [
   },
   {
     id: "21",
-    name: "Brite (Scrubber)",
+    name: "Scrubber",
     price: 49,
     image: "/products/Brite_Scrubber.png",
     description: "To be Updated.",
@@ -203,7 +203,7 @@ export const products: Product[] = [
   },
   {
     id: "22",
-    name: "Brite (Scrub Pad with Sponge)",
+    name: "Scrub Pad with Sponge",
     price: 49,
     image: "/products/Brite_ScrubPadwithSponge.jpeg",
     description: "To be Updated.",
@@ -212,7 +212,7 @@ export const products: Product[] = [
   },
   {
     id: "23",
-    name: "Brite (Sponge Scrubber)",
+    name: "Sponge Scrubber",
     price: 49,
     image: "/products/Brite_SpongeScrubber.jpeg",
     description: "To be Updated.",
