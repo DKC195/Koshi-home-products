@@ -3,10 +3,12 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Home, Info, ShoppingBag, Mail, LucideIcon } from "lucide-react";
+import { Home, Info, ShoppingBag, Mail, LucideIcon, Search } from "lucide-react";
+import SearchDialog from "./SearchDialog";
 
 export default function Navbar() {
     const [activeSection, setActiveSection] = useState("");
+    const [searchOpen, setSearchOpen] = useState(false);
     const pathname = usePathname();
 
     const menuItems: [string, string, LucideIcon][] = [
@@ -35,6 +37,19 @@ export default function Navbar() {
         return () => sections.forEach((section) => observer.unobserve(section));
     }, []);
 
+    // Keyboard shortcut: Cmd/Ctrl+K to open search
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+                e.preventDefault();
+                setSearchOpen(true);
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, []);
+
     const isActive = (href: string) => {
         if (href === "/") return pathname === href && !activeSection;
         if (href.startsWith("#")) {
@@ -53,29 +68,38 @@ export default function Navbar() {
                         Koshi Home Products
                     </Link>
 
-                    <nav>
-                        <ul className="flex gap-8">
-                            {menuItems.map(([href, title], index) => (
-                                <li key={index}>
-                                    <Link
-                                        href={href}
-                                        className={`
-                                            relative inline-block text-white text-base font-medium tracking-wide
-                                            after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px]
-                                            after:bg-white after:transition-all after:duration-300
-                                            ${
-                                                isActive(href)
-                                                    ? "after:w-full font-semibold text-green-400"
-                                                    : "after:w-0 hover:after:w-full"
-                                            }
-                                        `}
-                                    >
-                                        {title}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </nav>
+                    <div className="flex items-center gap-6">
+                        <nav>
+                            <ul className="flex gap-8">
+                                {menuItems.map(([href, title], index) => (
+                                    <li key={index}>
+                                        <Link
+                                            href={href}
+                                            className={`
+                                                relative inline-block text-white text-base font-medium tracking-wide
+                                                after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px]
+                                                after:bg-white after:transition-all after:duration-300
+                                                ${
+                                                    isActive(href)
+                                                        ? "after:w-full font-semibold text-green-400"
+                                                        : "after:w-0 hover:after:w-full"
+                                                }
+                                            `}
+                                        >
+                                            {title}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </nav>
+                        <button
+                            onClick={() => setSearchOpen(true)}
+                            className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+                            aria-label="Search"
+                        >
+                            <Search className="size-5" />
+                        </button>
+                    </div>
                 </div>
             </header>
 
@@ -105,11 +129,22 @@ export default function Navbar() {
                             <span className="text-xs mt-1">{title}</span>
                         </Link>
                     ))}
+                    <button
+                        onClick={() => setSearchOpen(true)}
+                        className="flex flex-col items-center justify-center w-full py-3 transition-colors text-gray-300 hover:text-white"
+                        aria-label="Search"
+                    >
+                        <Search size={24} />
+                        <span className="text-xs mt-1">Search</span>
+                    </button>
                 </nav>
             </div>
 
             {/* Spacer for mobile to prevent content overlap */}
             {/* <div className="md:hidden h-36" /> */}
+
+            {/* Search Dialog */}
+            <SearchDialog open={searchOpen} onOpenChange={setSearchOpen} />
         </>
     );
 }

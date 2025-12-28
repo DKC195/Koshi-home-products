@@ -37,13 +37,13 @@ export default function ProductCard({ product }: { product: Product }) {
                 </Card>
             </DialogTrigger>
 
-            <DialogContent className="max-w-md grid place-items-center">
+            <DialogContent className="w-full grid place-items-center">
                 <DialogHeader>
                     <DialogTitle className="self-center">
                         {product.name}
                     </DialogTitle>
                 </DialogHeader>
-                <div className="relative w-[300px] h-[300px] rounded-t-lg">
+                <div className="relative w-full h-[300px] rounded-t-lg">
                     <Image
                         src={product.image}
                         alt={product.name}

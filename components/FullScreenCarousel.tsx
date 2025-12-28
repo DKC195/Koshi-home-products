@@ -34,8 +34,6 @@ export default function FullScreenBackgroundCarousel() {
                 ]}
             >
                 <CarouselContent className="h-[70vh] flex items-stretch">
-                    {" "}
-                    {/* Use flex and items-stretch */}
                     {images.map((src, index) => (
                         <CarouselItem key={index} className="h-full">
                             <div className="relative w-full h-full">
@@ -44,7 +42,8 @@ export default function FullScreenBackgroundCarousel() {
                                     alt={`Slide ${index + 1}`}
                                     fill
                                     className="object-cover object-center"
-                                    priority={index === 0}
+                                    priority={true}
+                                    fetchPriority="high"
                                 />
                             </div>
                         </CarouselItem>
