@@ -115,13 +115,13 @@ export default function SearchDialog({ open, onOpenChange }: SearchDialogProps) 
                       <div className="flex items-center gap-2 mb-1">
                         <Package className="size-4 text-[#3D348B]" />
                         <span className="text-xs font-semibold text-[#3D348B] uppercase">
-                          Product
+                          {result.category?.split("-").join(" ")}
                         </span>
-                        {result.category && (
+                        {/* {result.category && (
                           <span className="text-xs text-gray-500">
                             • {result.category}
                           </span>
-                        )}
+                        )} */}
                       </div>
                       <h3 className="font-semibold text-gray-900">
                         {result.title}

@@ -111,7 +111,7 @@ export default function ProductsClient() {
         <div className="flex flex-wrap gap-2 justify-center mb-4">
           <button
             className={`px-4 py-2 rounded ${
-              !selectedCategory ? "bg-blue-500 text-white" : "bg-gray-200"
+              !selectedCategory ? "bg-[#3D348B] text-white font-bold" : "bg-gray-200"
             }`}
             onClick={() => setCategory(null)}
           >
