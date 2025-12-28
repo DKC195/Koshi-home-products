@@ -1,7 +1,7 @@
 "use client";
 
 import Autoplay from "embla-carousel-autoplay";
-// import Image from "next/image";
+import Image from "next/image";
 import {
     Carousel,
     CarouselContent,
@@ -38,12 +38,13 @@ export default function FullScreenBackgroundCarousel() {
                     {/* Use flex and items-stretch */}
                     {images.map((src, index) => (
                         <CarouselItem key={index} className="h-full">
-                            <div className="w-full h-full">
-                                <img
+                            <div className="relative w-full h-full">
+                                <Image
                                     src={src}
                                     alt={`Slide ${index + 1}`}
-                                    className="w-full h-full object-cover object-center"
-                                    loading="lazy"
+                                    fill
+                                    className="object-cover object-center"
+                                    priority={index === 0}
                                 />
                             </div>
                         </CarouselItem>

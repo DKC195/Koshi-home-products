@@ -22,12 +22,12 @@ export default function Home() {
                         {[
                             {
                                 title: "Kitchen Cleaning",
-                                image: "/products/Brite.jpeg",
+                                image: "/products/Brite_PScrubber.jpeg",
                                 desc: "When availability matters the most.",
                             },
                             {
                                 title: "Padlocks",
-                                image: "/products/Super60.jpeg",
+                                image: "/products/Lock_Super60.jpeg",
                                 desc: "Secure Everything.",
                             },
                             {
