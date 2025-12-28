@@ -116,7 +116,7 @@ export const products: Product[] = [
     id: "13",
     name: "Classic 30mm",
     price: 0,
-    image: "/products/Lock_Classic30.jpg",
+    image: "/products/Lock_Classic30.jpeg",
     description: "To be Updated.",
     sizes: ["30mm"],
     category: "KHP Padlocks",
